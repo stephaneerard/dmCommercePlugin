@@ -1,0 +1,18 @@
+DmCommerceProductType:
+  actAs: 
+    I18n:
+      fields: [name]
+      length: 5
+      actAs:
+        DmVersionable: ~
+        Dmblameable: ~
+    DmVersionable: ~
+    Dmblameable: ~
+  columns: 
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true 
+    name:
+      type: string(255)
+      notnull: true

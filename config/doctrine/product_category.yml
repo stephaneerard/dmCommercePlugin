@@ -1,0 +1,50 @@
+DmCommerceCategory:
+  actAs:
+    DmSortable:  
+    NestedSet: 
+      hasManyRoots: true
+    I18n:
+      fields: [title]
+      length: 5
+      actAs:
+        DmVersionable: ~
+        Dmblameable: ~
+    Dmblameable: ~
+    DmVersionable: ~ 
+    DmGallery: ~
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    title: 
+      type: string(255)
+  relations:
+    products:
+      class: DmCommerceProduct
+      refClass: DmCommerceCategoryProduct
+      type: many
+      
+DmCommerceCategoryProduct:
+  actAs:
+    DmVersionable: ~
+    Dmblameable: ~
+  columns:
+    dm_commerce_category_id:
+      type: integer(11)
+    dm_commerce_product_id:
+      type: integer(11)
+  relations:
+    category:
+      class: DmCommerceCategory
+      type: one
+      foreignType: many
+      foreign: id
+      local: dm_commerce_category_id
+    product:
+      class: DmCommerceProduct
+      type: one
+      foreignType: many
+      foreign: id
+      local: dm_commerce_product_id
+      

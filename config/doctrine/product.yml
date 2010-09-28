@@ -1,0 +1,33 @@
+DmCommerceProduct:
+  actAs:
+    DmSortable:  
+    DmVersionable: ~
+    Dmblameable: ~
+    DmGallery: ~
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    title: 
+      type: string(255)
+    dm_commerce_manufacturer_id:
+      type: integer(11)
+      notnull: true
+    dm_commerce_product_type_id:
+      type: integer(11)
+      notnull: true
+  relations:
+    categories:
+      class: DmCommerceCategory
+      refClass: DmCommerceCategoryProduct
+      type: many
+    suppliers:
+      class: DmCommerceSupplier
+      refClass: DmCommerceSupplierProduct
+      type: many
+    type:
+      class: DmCommerceProductType
+      type: one
+      foreignType: many
+      foreignAlias: products

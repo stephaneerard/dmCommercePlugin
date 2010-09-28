@@ -1,0 +1,44 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmCommerceCity
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: city
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=name'
+          - dm_commerce_country_id
+          - created_by
+          - updated_by
+          - dm_commerce_address_list
+          - latitude
+          - longitude
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - dm_commerce_country_id
+          - created_by
+          - updated_by
+          - latitude
+          - longitude
+      form:
+        display:
+          NONE: [name, dm_commerce_country_id, created_by, updated_by]
+          Addresses: [dm_commerce_address_list]
+          Others: [latitude, longitude]
+        class: DmCommerceCityAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

@@ -12,7 +12,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-    $this->setPlugins(array('dsCommercePlugin'));
-    $this->setPluginPath('dsCommercePlugin', dirname(__FILE__).'/../../../..');
+    $this->setPlugins(array('dmCommercePlugin'));
+    $this->setPluginPath('dmCommercePlugin', dirname(__FILE__).'/../../../..');
   }
 }

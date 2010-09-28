@@ -1,0 +1,39 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmCommerceBuildingFloor
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: building_floor
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=name'
+          - '=alias'
+          - created_by
+          - updated_by
+          - dm_commerce_address_list
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - alias
+          - created_by
+          - updated_by
+      form:
+        display:
+          NONE: [name, alias, created_by, updated_by]
+          Addresses: [dm_commerce_address_list]
+        class: DmCommerceBuildingFloorAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

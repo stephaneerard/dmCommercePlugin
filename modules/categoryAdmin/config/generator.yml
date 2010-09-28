@@ -1,0 +1,51 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmCommerceCategory
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: category
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        products_list:
+          label: Products
+        dm_gallery: Gallery
+      list:
+        display:
+          - '=title'
+          - dm_gallery
+          - products_list
+          - root_id
+          - lft
+          - rgt
+          - level
+          - created_by
+          - updated_by
+        sort:
+          - position
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: true
+      filter:
+        display:
+          - title
+          - root_id
+          - lft
+          - rgt
+          - level
+          - created_by
+          - updated_by
+      form:
+        display:
+          NONE: [title]
+          Products: [products_list]
+          Gallery: [dm_gallery]
+          Others: [root_id, lft, rgt, level, created_by, updated_by]
+        class: DmCommerceCategoryAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

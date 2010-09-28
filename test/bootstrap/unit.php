@@ -11,20 +11,20 @@ sfCoreAutoload::register();
 $configuration = new sfProjectConfiguration(dirname(__FILE__).'/../fixtures/project');
 require_once $configuration->getSymfonyLibDir().'/vendor/lime/lime.php';
 
-function dsCommercePlugin_autoload_again($class)
+function dmCommercePlugin_autoload_again($class)
 {
   $autoload = sfSimpleAutoload::getInstance();
   $autoload->reload();
   return $autoload->autoload($class);
 }
-spl_autoload_register('dsCommercePlugin_autoload_again');
+spl_autoload_register('dmCommercePlugin_autoload_again');
 
-if (file_exists($config = dirname(__FILE__).'/../../config/dsCommercePluginConfiguration.class.php'))
+if (file_exists($config = dirname(__FILE__).'/../../config/dmCommercePluginConfiguration.class.php'))
 {
   require_once $config;
-  $plugin_configuration = new dsCommercePluginConfiguration($configuration, dirname(__FILE__).'/../..', 'dsCommercePlugin');
+  $plugin_configuration = new dmCommercePluginConfiguration($configuration, dirname(__FILE__).'/../..', 'dmCommercePlugin');
 }
 else
 {
-  $plugin_configuration = new sfPluginConfigurationGeneric($configuration, dirname(__FILE__).'/../..', 'dsCommercePlugin');
+  $plugin_configuration = new sfPluginConfigurationGeneric($configuration, dirname(__FILE__).'/../..', 'dmCommercePlugin');
 }

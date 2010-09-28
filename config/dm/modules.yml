@@ -1,0 +1,121 @@
+Content:
+  Commerce:
+    Category:
+      model: DmCommerceCategory
+      page: true
+      name: Category|Categories
+      admin: true
+      front: true
+      components:
+        list:
+          cache: true
+        listInProduct:
+          filters: [products]
+          cache: true
+        show:
+          cache: true
+    Product:
+      model: DmCommerceProduct
+      page: true
+      name: Product|Products
+      admin: true
+      front: true
+      components:
+        listByCategory:
+          filters: [category]
+          cache: true
+        listByManufacturer:
+          filters: [manufacturers]
+          cache: true
+        listBySupplyer:
+          filters: [supplyers]
+          cache: true
+        show: 
+          cache: true
+        showInCategory:
+          filters: [categories]
+          cache: true
+          
+    ProductType:
+      model: DmCommerceProductType
+      page: true
+      name: Product Type|Product Types
+      admin: true
+      front: true
+      components:
+        list:
+          cache: true
+        show: 
+          cache: true
+          
+    Supplier:
+      model: DmCommerceSupplier
+      page: true
+      name: Supplier|Suppliers
+      admin: true
+      front: true
+      components:
+        list:
+          cache: static
+        show:
+          cache: static
+          
+    Manufacturer:
+      model: DmCommerceManufacturer
+      page: true
+      name: Manufacturer|Manufacturers
+      admin: true
+      front: true
+      components:
+        list:
+          cache: static
+        show: 
+          cache: static
+  Locations:
+    Country:
+      model: DmCommerceCountry
+      page: false
+      name: Country|Countries
+      admin: true
+      
+    City:
+      model: DmCommerceCity
+      page: false
+      name: City|Cities
+      admin: true
+      front: true
+      components:
+        list: 
+          cache: true
+        show: 
+          cache: true
+            
+    Address:
+      model: DmCommerceAddress
+      page: false
+      name: Address|Addresses
+      admin: true
+      front: true
+      components:
+        list:
+          cache: true
+        show:
+          cache: true
+          
+    StreetType:
+      model: DmCommerceStreetType
+      page: false
+      name: Street Type|Street Types
+      admin: true
+      front: false
+      
+    BuildingFloor:
+      model: DmCommerceBuildingFloor
+      page: false
+      name: Building Floor|Building Floors
+      admin: true
+      front: false
+    
+    
+      
+              

@@ -25,7 +25,7 @@ test:
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            dsCommercePlugin
+    csrf_secret:            dmCommercePlugin
 
     # Output escaping settings
     escaping_strategy:      on

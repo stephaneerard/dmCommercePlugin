@@ -1,0 +1,45 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmCommerceManufacturer
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: manufacturer
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        dm_gallery: Gallery
+      list:
+        display:
+          - '=name'
+          - dm_commerce_address_id
+          - created_by
+          - updated_by
+          - dm_gallery
+          - products_list
+          - website_url
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - website_url
+          - dm_commerce_address_id
+          - created_by
+          - updated_by
+      form:
+        display:
+          NONE: [name, dm_commerce_address_id, created_by, updated_by]
+          Products: [products_list]
+          Gallery: [dm_gallery]
+          Others: [website_url]
+        class: DmCommerceManufacturerAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

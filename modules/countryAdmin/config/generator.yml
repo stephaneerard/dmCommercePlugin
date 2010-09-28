@@ -1,0 +1,36 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmCommerceCountry
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: country
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=name'
+          - created_by
+          - updated_by
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - created_by
+          - updated_by
+      form:
+        display:
+          NONE: [name]
+          Others: [created_by, updated_by]
+        class: DmCommerceCountryAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

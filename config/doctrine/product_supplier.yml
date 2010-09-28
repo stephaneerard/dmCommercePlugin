@@ -1,0 +1,53 @@
+DmCommerceSupplier:
+  actAs:
+    DmVersionable: ~
+    Dmblameable: ~
+    DmGallery: ~
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    name: 
+      type: string(255)
+      notnull: true
+    dm_commerce_address_id:
+      type: integer(11)
+      notnull: true
+    website_url: 
+      type: string(255)
+  relations:
+    products:
+      class: DmCommerceProduct
+      type: many
+      foreignType: many
+      foreignAlias: manufacturer
+    address:
+      class: DmCommerceAddress
+      type: one
+      foreignType: one
+      local: dm_commerce_address_id
+      foreign: id
+      
+DmCommerceSupplierProduct:
+  actAs:
+    DmVersionable: ~
+    Dmblameable: ~
+  columns:
+    dm_commerce_product_id:
+      type: integer(11)
+    dm_commerce_supplier_id:
+      type: integer(11)
+  relations:
+    product:
+      class: DmCommerceProduct
+      type: one
+      foreignType: many
+      foreign: id
+      local: dm_commerce_product_id
+    supplyer:
+      class: DmCommerceSupplier
+      type: one
+      foreignType: many
+      foreign: id
+      local: dm_commerce_supplier_id    
