@@ -1,0 +1,37 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmComProductCharTypePropertyType
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: product_char_type_property_type
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=name'
+          - created_by
+          - updated_by
+          - properties_list
+        sort:
+          - name
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - name
+          - created_by
+          - updated_by
+      form:
+        display:
+          NONE: [name, created_by, updated_by]
+          'Product Char Type Properties': [properties_list]
+        class: DmComProductCharTypePropertyTypeAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

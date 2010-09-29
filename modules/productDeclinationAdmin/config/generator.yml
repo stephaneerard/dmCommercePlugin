@@ -1,0 +1,40 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: DmComProductDeclination
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: product_declination
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        dm_gallery: Gallery
+      list:
+        display:
+          - '=id'
+          - dm_com_product_id
+          - created_by
+          - updated_by
+          - dm_gallery
+        sort:
+          - position
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: true
+      filter:
+        display:
+          - id
+          - dm_com_product_id
+          - created_by
+          - updated_by
+      form:
+        display:
+          NONE: [dm_com_product_id, created_by, updated_by]
+          Gallery: [dm_gallery]
+        class: DmComProductDeclinationAdminForm
+        fields: {  }
+      edit: ~
+      new: ~
