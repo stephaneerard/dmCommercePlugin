@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceStreetType
+    model_class: DmComStreetType
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -13,7 +13,7 @@ generator:
       list:
         display:
           - '=title'
-          - dm_commerce_address_list
+          - dm_com_address_list
           - created_by
           - updated_by
         sort:
@@ -30,9 +30,9 @@ generator:
       form:
         display:
           NONE: [title]
-          Addresses: [dm_commerce_address_list]
+          Addresses: [dm_com_address_list]
           Others: [created_by, updated_by]
-        class: DmCommerceStreetTypeAdminForm
+        class: DmComStreetTypeAdminForm
         fields: {  }
       edit: ~
       new: ~

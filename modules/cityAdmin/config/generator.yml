@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceCity
+    model_class: DmComCity
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -13,12 +13,12 @@ generator:
       list:
         display:
           - '=name'
-          - dm_commerce_country_id
-          - created_by
-          - updated_by
-          - dm_commerce_address_list
+          - dm_com_country_id
+          - dm_com_address_list
           - latitude
           - longitude
+          - created_by
+          - updated_by
         sort:
           - name
           - asc
@@ -28,17 +28,17 @@ generator:
       filter:
         display:
           - name
-          - dm_commerce_country_id
-          - created_by
-          - updated_by
+          - dm_com_country_id
           - latitude
           - longitude
+          - created_by
+          - updated_by
       form:
         display:
-          NONE: [name, dm_commerce_country_id, created_by, updated_by]
-          Addresses: [dm_commerce_address_list]
-          Others: [latitude, longitude]
-        class: DmCommerceCityAdminForm
+          NONE: [name, dm_com_country_id]
+          Addresses: [dm_com_address_list]
+          Others: [latitude, longitude, created_by, updated_by]
+        class: DmComCityAdminForm
         fields: {  }
       edit: ~
       new: ~

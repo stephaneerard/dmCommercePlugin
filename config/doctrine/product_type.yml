@@ -1,5 +1,7 @@
-DmCommerceProductType:
+DmComProductType:
   actAs: 
+    NestedSet:
+      hasManyRoots: true
     I18n:
       fields: [name]
       length: 5
@@ -16,3 +18,8 @@ DmCommerceProductType:
     name:
       type: string(255)
       notnull: true
+  relations:
+    characteristicTypes:
+      class: DmComProductCharacteristicType
+      refClass: DmComProductTypeProductCharacteristicType
+      type: many

@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceManufacturer
+    model_class: DmComManufacturer
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -14,7 +14,7 @@ generator:
       list:
         display:
           - '=name'
-          - dm_commerce_address_id
+          - dm_com_address_id
           - created_by
           - updated_by
           - dm_gallery
@@ -30,16 +30,16 @@ generator:
         display:
           - name
           - website_url
-          - dm_commerce_address_id
+          - dm_com_address_id
           - created_by
           - updated_by
       form:
         display:
-          NONE: [name, dm_commerce_address_id, created_by, updated_by]
+          NONE: [name, dm_com_address_id, created_by, updated_by]
           Products: [products_list]
           Gallery: [dm_gallery]
           Others: [website_url]
-        class: DmCommerceManufacturerAdminForm
+        class: DmComManufacturerAdminForm
         fields: {  }
       edit: ~
       new: ~

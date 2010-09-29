@@ -1,4 +1,4 @@
-DmCommerceCategory:
+DmComCategory:
   actAs:
     DmSortable:  
     NestedSet: 
@@ -21,30 +21,30 @@ DmCommerceCategory:
       type: string(255)
   relations:
     products:
-      class: DmCommerceProduct
-      refClass: DmCommerceCategoryProduct
+      class: DmComProduct
+      refClass: DmComCategoryProduct
       type: many
       
-DmCommerceCategoryProduct:
+DmComCategoryProduct:
   actAs:
     DmVersionable: ~
     Dmblameable: ~
   columns:
-    dm_commerce_category_id:
+    dm_com_category_id:
       type: integer(11)
-    dm_commerce_product_id:
+    dm_com_product_id:
       type: integer(11)
   relations:
     category:
-      class: DmCommerceCategory
+      class: DmComCategory
       type: one
       foreignType: many
       foreign: id
-      local: dm_commerce_category_id
+      local: dm_com_category_id
     product:
-      class: DmCommerceProduct
+      class: DmComProduct
       type: one
       foreignType: many
       foreign: id
-      local: dm_commerce_product_id
+      local: dm_com_product_id
       

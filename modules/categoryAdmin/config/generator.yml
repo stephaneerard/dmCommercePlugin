@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceCategory
+    model_class: DmComCategory
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -13,17 +13,16 @@ generator:
         products_list:
           label: Products
         dm_gallery: Gallery
+        dm_ns_parent_id:
+          label: 'Child of'
       list:
         display:
           - '=title'
-          - dm_gallery
-          - products_list
-          - root_id
-          - lft
-          - rgt
-          - level
+          - _dm_ns_parent_id
           - created_by
           - updated_by
+          - dm_gallery
+          - products_list
         sort:
           - position
           - asc
@@ -33,19 +32,16 @@ generator:
       filter:
         display:
           - title
-          - root_id
-          - lft
-          - rgt
-          - level
+          - dm_ns_parent_id
           - created_by
           - updated_by
       form:
         display:
-          NONE: [title]
+          NONE: [title, created_by, updated_by]
+          Hierarchy: [dm_ns_parent_id]
           Products: [products_list]
           Gallery: [dm_gallery]
-          Others: [root_id, lft, rgt, level, created_by, updated_by]
-        class: DmCommerceCategoryAdminForm
+        class: DmComCategoryAdminForm
         fields: {  }
       edit: ~
       new: ~

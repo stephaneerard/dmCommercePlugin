@@ -1,4 +1,4 @@
-DmCommerceAddress:
+DmComAddress:
   actAs:
     DmVersionable: ~
     Dmblameable: ~
@@ -8,10 +8,10 @@ DmCommerceAddress:
       type: integer(11)
       primary: true
       autoincrement: true
-    dm_commerce_city_id:
+    dm_com_city_id:
       type: integer(11)
       notnull: true
-    dm_commerce_street_type_id:
+    dm_com_street_type_id:
       type: integer(11)
       notnull: true
     street_name:
@@ -23,29 +23,29 @@ DmCommerceAddress:
     building:
       type: string(255)
       notnull: true
-    dm_commerce_building_floor_id:
+    dm_com_building_floor_id:
       type: integer(11)
   relations:
     city: 
-      class: DmCommerceCity
+      class: DmComCity
       type: one
       foreignType: many
-      local: dm_commerce_city_id
+      local: dm_com_city_id
       foreign: id
     streetType:
-      class: DmCommerceStreetType
+      class: DmComStreetType
       type: one
       foreignType: many
-      local: dm_commerce_street_type_id
+      local: dm_com_street_type_id
       foreign: id
     floor:
-      class: DmCommerceBuildingFloor
+      class: DmComBuildingFloor
       type: one
       foreignType: many
-      local: dm_commerce_building_floor_id
+      local: dm_com_building_floor_id
       foreign: id
       
-DmCommerceBuildingFloor:
+DmComBuildingFloor:
   actAs:
     I18n:
       fields: [name, alias]
@@ -66,7 +66,7 @@ DmCommerceBuildingFloor:
       notnull: false
 
 
-DmCommerceCity:
+DmComCity:
   actAs:
     I18n:
       fields: [name]
@@ -83,18 +83,18 @@ DmCommerceCity:
     name: 
       type: string(255)
       notnull: true
-    dm_commerce_country_id:
+    dm_com_country_id:
       type: integer(11)
       notnull: true
   relations:
     country:
-      class: DmCommerceCountry
+      class: DmComCountry
       type: one
       foreignType: one
-      local: dm_commerce_country_id
+      local: dm_com_country_id
       foreign: id
       
-DmCommerceCountry:
+DmComCountry:
   actAs:
     I18n:
       fields: [name]
@@ -111,7 +111,7 @@ DmCommerceCountry:
       type: string(255)
       notnull: true
   
-DmCommerceStreetType:
+DmComStreetType:
   actAs:
     I18n:
       fields: [title]

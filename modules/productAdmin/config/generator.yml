@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceProduct
+    model_class: DmComProduct
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -17,14 +17,16 @@ generator:
         dm_gallery: Gallery
       list:
         display:
-          - '=title'
-          - dm_commerce_manufacturer_id
+          - '=name'
+          - dm_com_product_type_id
+          - dm_com_manufacturer_id
           - created_by
           - updated_by
           - dm_gallery
-          - dm_commerce_product_type_id
+          - declinations_list
           - categories_list
           - suppliers_list
+          - description
         sort:
           - position
           - asc
@@ -33,19 +35,21 @@ generator:
         sortable: true
       filter:
         display:
-          - title
-          - type
-          - dm_commerce_manufacturer_id
+          - name
+          - dm_com_manufacturer_id
+          - dm_com_product_type_id
           - created_by
           - updated_by
+          - description
       form:
         display:
-          NONE: [title, dm_commerce_product_type_id, created_by, updated_by]
-          Manufacturing: [dm_commerce_manufacturer_id]
+          NONE: [name, dm_com_product_type_id, dm_com_manufacturer_id, created_by, updated_by]
           Categories: [categories_list]
           Suppliers: [suppliers_list]
+          'Product Declinations': [declinations_list]
           Gallery: [dm_gallery]
-        class: DmCommerceProductAdminForm
+          Others: [description]
+        class: DmComProductAdminForm
         fields: {  }
       edit: ~
       new: ~

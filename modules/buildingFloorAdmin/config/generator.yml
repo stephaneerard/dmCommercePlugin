@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceBuildingFloor
+    model_class: DmComBuildingFloor
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -13,10 +13,10 @@ generator:
       list:
         display:
           - '=name'
-          - '=alias'
+          - dm_com_address_list
+          - alias
           - created_by
           - updated_by
-          - dm_commerce_address_list
         sort:
           - name
           - asc
@@ -31,9 +31,10 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [name, alias, created_by, updated_by]
-          Addresses: [dm_commerce_address_list]
-        class: DmCommerceBuildingFloorAdminForm
+          NONE: [name]
+          Addresses: [dm_com_address_list]
+          Others: [alias, created_by, updated_by]
+        class: DmComBuildingFloorAdminForm
         fields: {  }
       edit: ~
       new: ~

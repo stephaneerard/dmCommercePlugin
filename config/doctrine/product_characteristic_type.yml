@@ -1,0 +1,103 @@
+DmComProductCharType:
+  actAs:
+    I18n:
+      fields: [name, description]
+      length: 5
+      actAs:
+        DmVersionable:
+        Dmblameable:
+    DmGallery:
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    name: 
+      type: string(255)
+      notnull: true
+  relations:
+    productTypes:
+      class: DmComProductType
+      refClass: DmComProductTypeProductCharType
+      type: many
+    properties:
+      class: DmComProductCharTypeProperty
+      type: many
+      foreignType: one
+      local: id
+      foreign: dm_com_product_char_type_id
+      foreignAlias: CharType
+    
+DmComProductTypeProductCharType:
+  actAs:
+    DmVersionable:
+    Dmblameable:
+  columns:
+    dm_com_product_type_id:
+      type: integer(11)
+    dm_com_product_char_type_id:
+      type: integer(11)
+  relations:
+    productType:
+      class: DmComProductType
+      type: one
+      foreignType: many
+      foreign: id
+      local: dm_com_product_type_id
+    CharType:
+      class: DmComProductCharType
+      type: one
+      foreignType: many
+      foreign: id
+      local: dm_com_product_char_type_id
+
+DmComProductCharTypeProperty:
+  actAs:
+    I18n:
+      fields: [name]
+      length: 5
+      actAs:
+        DmVersionable:
+        Dmblameable:
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      notnull: true
+    dm_com_product_char_type_id: 
+      type: integer(11)
+      notnull: true
+    dm_com_product_char_type_property_type_id:
+      type: integer(11)
+      notnull: true
+  relations:
+    type:
+      class: DmComProductCharTypePropertyType
+      type: one
+      foreignType: many
+      local: dm_com_product_char_type_property_type_id  
+      foreign: id
+      foreignAlias: properties
+      
+DmComProductCharTypePropertyType:
+  actAs:
+    I18n:
+      fields: [name]
+      length: 5
+      actAs:
+        DmVersionable:
+        Dmblameable:
+    DmVersionable:
+    Dmblameable:
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    name: 
+      type: string(255)
+      notnull: true
+      

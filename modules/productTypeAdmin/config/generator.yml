@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceProductType
+    model_class: DmComProductType
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -9,13 +9,19 @@ generator:
     with_doctrine_route: false
     config:
       actions: ~
-      fields: {  }
+      fields:
+        dm_com_product_char_type_list:
+          label: 'Product Char Types'
+        dm_ns_parent_id:
+          label: 'Child of'
       list:
         display:
           - '=name'
+          - _dm_ns_parent_id
           - created_by
           - updated_by
           - products_list
+          - dm_com_product_char_type_list
         sort:
           - name
           - asc
@@ -25,13 +31,16 @@ generator:
       filter:
         display:
           - name
+          - dm_ns_parent_id
           - created_by
           - updated_by
       form:
         display:
           NONE: [name, created_by, updated_by]
+          Hierarchy: [dm_ns_parent_id]
+          'Product Char Types': [dm_com_product_char_type_list]
           Products: [products_list]
-        class: DmCommerceProductTypeAdminForm
+        class: DmComProductTypeAdminForm
         fields: {  }
       edit: ~
       new: ~

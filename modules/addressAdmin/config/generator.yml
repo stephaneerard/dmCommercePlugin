@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceAddress
+    model_class: DmComAddress
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -13,9 +13,9 @@ generator:
       list:
         display:
           - '=id'
-          - dm_commerce_city_id
-          - dm_commerce_street_type_id
-          - dm_commerce_building_floor_id
+          - dm_com_city_id
+          - dm_com_street_type_id
+          - dm_com_building_floor_id
           - created_by
           - updated_by
           - street_name
@@ -32,21 +32,21 @@ generator:
       filter:
         display:
           - id
-          - dm_commerce_city_id
-          - dm_commerce_street_type_id
+          - dm_com_city_id
+          - dm_com_street_type_id
           - street_name
           - street_number
           - building
-          - dm_commerce_building_floor_id
+          - dm_com_building_floor_id
           - created_by
           - updated_by
           - latitude
           - longitude
       form:
         display:
-          NONE: [dm_commerce_city_id, dm_commerce_street_type_id, dm_commerce_building_floor_id, created_by, updated_by]
+          NONE: [dm_com_city_id, dm_com_street_type_id, dm_com_building_floor_id, created_by, updated_by]
           Others: [street_name, street_number, building, latitude, longitude]
-        class: DmCommerceAddressAdminForm
+        class: DmComAddressAdminForm
         fields: {  }
       edit: ~
       new: ~

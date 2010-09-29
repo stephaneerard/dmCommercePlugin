@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: DmCommerceCountry
+    model_class: DmComCountry
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -30,7 +30,7 @@ generator:
         display:
           NONE: [name]
           Others: [created_by, updated_by]
-        class: DmCommerceCountryAdminForm
+        class: DmComCountryAdminForm
         fields: {  }
       edit: ~
       new: ~

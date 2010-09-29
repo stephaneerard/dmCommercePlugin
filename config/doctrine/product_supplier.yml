@@ -1,4 +1,4 @@
-DmCommerceSupplier:
+DmComSupplier:
   actAs:
     DmVersionable: ~
     Dmblameable: ~
@@ -11,43 +11,43 @@ DmCommerceSupplier:
     name: 
       type: string(255)
       notnull: true
-    dm_commerce_address_id:
+    dm_com_address_id:
       type: integer(11)
       notnull: true
     website_url: 
       type: string(255)
   relations:
     products:
-      class: DmCommerceProduct
+      class: DmComProduct
       type: many
       foreignType: many
       foreignAlias: manufacturer
     address:
-      class: DmCommerceAddress
+      class: DmComAddress
       type: one
       foreignType: one
-      local: dm_commerce_address_id
+      local: dm_com_address_id
       foreign: id
       
-DmCommerceSupplierProduct:
+DmComSupplierProduct:
   actAs:
     DmVersionable: ~
     Dmblameable: ~
   columns:
-    dm_commerce_product_id:
+    dm_com_product_id:
       type: integer(11)
-    dm_commerce_supplier_id:
+    dm_com_supplier_id:
       type: integer(11)
   relations:
     product:
-      class: DmCommerceProduct
+      class: DmComProduct
       type: one
       foreignType: many
       foreign: id
-      local: dm_commerce_product_id
+      local: dm_com_product_id
     supplyer:
-      class: DmCommerceSupplier
+      class: DmComSupplier
       type: one
       foreignType: many
       foreign: id
-      local: dm_commerce_supplier_id    
+      local: dm_com_supplier_id    

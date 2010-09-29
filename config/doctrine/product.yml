@@ -1,33 +1,65 @@
-DmCommerceProduct:
+DmComProduct:
   actAs:
     DmSortable:  
     DmVersionable: ~
     Dmblameable: ~
     DmGallery: ~
+    I18n:
+      fields: [description]
+      length: 5
+      actAs:
+        DmVersionable:
+        Dmblameable:
   columns:
     id:
       type: integer(11)
       primary: true
       autoincrement: true
-    title: 
+    name: 
       type: string(255)
-    dm_commerce_manufacturer_id:
+    description:
+      type: string(2000)
+    dm_com_manufacturer_id:
       type: integer(11)
-      notnull: true
-    dm_commerce_product_type_id:
+      notnull: false
+    dm_com_product_type_id:
       type: integer(11)
-      notnull: true
+      notnull: false
   relations:
     categories:
-      class: DmCommerceCategory
-      refClass: DmCommerceCategoryProduct
+      class: DmComCategory
+      refClass: DmComCategoryProduct
       type: many
     suppliers:
-      class: DmCommerceSupplier
-      refClass: DmCommerceSupplierProduct
+      class: DmComSupplier
+      refClass: DmComSupplierProduct
       type: many
     type:
-      class: DmCommerceProductType
+      class: DmComProductType
       type: one
       foreignType: many
       foreignAlias: products
+
+DmComProductDeclination:
+  actAs:
+    DmSortable:
+    DmVersionable:
+    Dmblameable:
+    DmGallery:
+  columns:
+    id:
+      type: integer(11)
+      primary: true
+      autoincrement: true
+    dm_com_product_id:
+      type: integer(11):
+      notnull: true
+  relations:
+    product:
+      class: DmComProduct
+      type: one
+      foreignType: many
+      local: dm_com_product_id
+      foreign: id
+      foreignAlias: declinations
+      

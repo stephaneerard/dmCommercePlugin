@@ -1,4 +1,4 @@
-DmCommerceManufacturer:
+DmComManufacturer:
   actAs:
     DmVersionable: ~
     Dmblameable: ~
@@ -13,21 +13,21 @@ DmCommerceManufacturer:
       notnull: true
     website_url: 
       type: string(255)
-    dm_commerce_address_id:
+    dm_com_address_id:
       type: integer(11)
       notnull: true
   relations:
     products:
-      class: DmCommerceProduct
+      class: DmComProduct
       type: many
       foreignType: one
       foreignAlias: manufacturer
-      foreign: dm_commerce_manufacturer_id
+      foreign: dm_com_manufacturer_id
       local: id
     address:
-      class: DmCommerceAddress
+      class: DmComAddress
       type: one
       foreignType: one
-      local: dm_commerce_address_id
+      local: dm_com_address_id
       foreign: id
       

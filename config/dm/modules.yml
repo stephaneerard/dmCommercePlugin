@@ -1,7 +1,7 @@
-Content:
-  Commerce:
+Commerce:
+  Categories:
     Category:
-      model: DmCommerceCategory
+      model: DmComCategory
       page: true
       name: Category|Categories
       admin: true
@@ -14,8 +14,10 @@ Content:
           cache: true
         show:
           cache: true
+  
+  Products:
     Product:
-      model: DmCommerceProduct
+      model: DmComProduct
       page: true
       name: Product|Products
       admin: true
@@ -35,21 +37,25 @@ Content:
         showInCategory:
           filters: [categories]
           cache: true
-          
-    ProductType:
-      model: DmCommerceProductType
+    ProductDeclination:
+      parent: Product
+      model: DmComProductDeclination
       page: true
-      name: Product Type|Product Types
+      name: Product Declination|Product Declinations
       admin: true
       front: true
       components:
-        list:
+        listByProduct:
+          filters: [product]
           cache: true
         show: 
           cache: true
+        showInProduct:
+          filters: [product]
+          cache: true
           
     Supplier:
-      model: DmCommerceSupplier
+      model: DmComSupplier
       page: true
       name: Supplier|Suppliers
       admin: true
@@ -61,7 +67,7 @@ Content:
           cache: static
           
     Manufacturer:
-      model: DmCommerceManufacturer
+      model: DmComManufacturer
       page: true
       name: Manufacturer|Manufacturers
       admin: true
@@ -71,15 +77,48 @@ Content:
           cache: static
         show: 
           cache: static
+          
+  Product Definitions:
+    ProductType:
+      model: DmComProductType
+      page: true
+      name: Product Type|Product Types
+      admin: true
+      front: true
+      components:
+        list:
+          cache: true
+        show: 
+          cache: true
+    ProductCharacteristicType:
+      model: DmComProductCharType
+      page: false
+      name: Product Characteristic Type|Product Characteristic Types
+      admin: true
+      front: true
+      
+    ProductCharacteristicTypeProperty:
+      model: DmComProductCharTypeProperty
+      page: false
+      name: Product Characteristic Type Property|Product Characteristic Type Properties
+      admin: true
+      front: true
+    ProductCharacteristicTypePropertyType:
+      model: DmComProductCharTypePropertyType
+      page: false
+      name: Product Characteristic Type Property Type|Product Characteristic Type Property Types
+      admin: true
+      front: true
+  
   Locations:
     Country:
-      model: DmCommerceCountry
+      model: DmComCountry
       page: false
       name: Country|Countries
       admin: true
       
     City:
-      model: DmCommerceCity
+      model: DmComCity
       page: false
       name: City|Cities
       admin: true
@@ -91,7 +130,7 @@ Content:
           cache: true
             
     Address:
-      model: DmCommerceAddress
+      model: DmComAddress
       page: false
       name: Address|Addresses
       admin: true
@@ -103,14 +142,14 @@ Content:
           cache: true
           
     StreetType:
-      model: DmCommerceStreetType
+      model: DmComStreetType
       page: false
       name: Street Type|Street Types
       admin: true
       front: false
       
     BuildingFloor:
-      model: DmCommerceBuildingFloor
+      model: DmComBuildingFloor
       page: false
       name: Building Floor|Building Floors
       admin: true
