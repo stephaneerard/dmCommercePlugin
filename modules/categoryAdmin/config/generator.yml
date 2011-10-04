@@ -13,8 +13,9 @@ generator:
         products_list:
           label: Products
         dm_gallery: Gallery
-        dm_ns_parent_id:
-          label: 'Child of'
+        nested_set_parent_id:
+          label: 'Parent Category'
+          help: 'Choose ~ to make it root'
       list:
         display:
           - '=title'
