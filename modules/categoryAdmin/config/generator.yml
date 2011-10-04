@@ -18,7 +18,7 @@ generator:
       list:
         display:
           - '=title'
-          - _dm_ns_parent_id
+          - nested_set_parent_id
           - created_by
           - updated_by
           - dm_gallery
@@ -37,8 +37,7 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [title, created_by, updated_by]
-          Hierarchy: [dm_ns_parent_id]
+          NONE: [title, nested_set_parent_id, created_by, updated_by]
           Products: [products_list]
           Gallery: [dm_gallery]
         class: DmComCategoryAdminForm
